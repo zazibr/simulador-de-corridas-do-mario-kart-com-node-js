@@ -45,7 +45,7 @@ async function playRaceEngine(character1,character2) {
     let totalSkill_2 = 0;
     
     for (let round = 1; round <= 5; round++) {
-        console.log(`\nRodada ${round}`);
+        console.log(`Rodada ${round}`);
 
         // sortear bloco
         let block = await getRandomBlock();
@@ -96,26 +96,53 @@ async function playRaceEngine(character1,character2) {
         }
     
         if (block === "CONFRONTO") {
-            let powerResult = diceResult1 + character1.PODER;
+            let powerResult1 = diceResult1 + character1.PODER;
             let powerResult2 = diceResult2 + character2.PODER;
+
+            console.log(`${character1.NOME} confrontou com ${character2.NOME}!`);
     
             // totalSkill_1 = diceResult1 + character1.PODER;
             // totalSkill_2 = diceResult2 + character2.PODER;
     
     
-            // await logRollResult(
-            //     character1.NOME, 
-            //     "poder", 
-            //     diceResult1, 
-            //     character1.PODER
-            // );
+            await logRollResult(
+                character1.NOME, 
+                "poder", 
+                diceResult1, 
+                character1.PODER
+            );
     
-            // await logRollResult(
-            //     character2.NOME, 
-            //     "poder", 
-            //     diceResult1, 
-            //     character2.PODER
-            // );
+            await logRollResult(
+                character2.NOME, 
+                "poder", 
+                diceResult1, 
+                character2.PODER
+            );
+
+            //
+            // mudança para ir ternário
+            //
+            character2.PONTOS -= (powerResult1 > powerResult2) && (character2.PONTOS > 0) ? 1 : 0;
+            // if (powerResult1 > powerResult2) {
+            //     if (character2.PONTOS > 0) {                 
+            //         character2.PONTOS--;
+            //     }
+            // }
+
+            //
+            // mudança para ir ternário
+            //
+            character1.PONTOS -= (powerResult2 > powerResult1) && (character1.PONTOS > 0) ? 1 : 0;
+            // if (powerResult2 > powerResult1) {
+            //     if (character1.PONTOS > 0) {                 
+            //         character1.PONTOS--;
+            //     }
+            // }
+            
+            if (powerResult2 === powerResult1) {
+                console.log("Confronto empatado! Nenhum ponto foi perdido.");
+            }
+
         }
 
         //
