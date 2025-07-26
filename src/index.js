@@ -139,9 +139,12 @@ async function playRaceEngine(character1,character2) {
             //     }
             // }
             
-            if (powerResult2 === powerResult1) {
-                console.log("Confronto empatado! Nenhum ponto foi perdido.");
-            }
+            console.log(
+                (powerResult2 === powerResult1) ? "Confronto empatado! Nenhum ponto foi perdido." : ""
+            );
+            // if (powerResult2 === powerResult1) {
+            //     console.log("Confronto empatado! Nenhum ponto foi perdido.");
+            // }
 
         }
 
@@ -157,8 +160,7 @@ async function playRaceEngine(character1,character2) {
         }
 
         console.log( "---------------------------------------------------------------------------" );
-        // console.log(`${character1.NOME} tem ${character1.PONTOS} pontos`);
-        // console.log(`${character2.NOME} tem ${character2.PONTOS} pontos`);
+
     }
 
 
