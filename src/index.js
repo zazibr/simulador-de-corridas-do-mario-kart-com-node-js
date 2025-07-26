@@ -119,20 +119,27 @@ async function playRaceEngine(character1,character2) {
                 character2.PODER
             );
 
+            if ((powerResult1 > powerResult2) && (character2.PONTOS > 0)) {
+              character2.PONTOS--;
+            }
             //
             // mudança para ir ternário
             //
-            character2.PONTOS -= (powerResult1 > powerResult2) && (character2.PONTOS > 0) ? 1 : 0;
+            // character2.PONTOS -= (powerResult1 > powerResult2) && (character2.PONTOS > 0) ? 1 : 0;
             // if (powerResult1 > powerResult2) {
             //     if (character2.PONTOS > 0) {                 
             //         character2.PONTOS--;
             //     }
             // }
 
+            if ((powerResult2 > powerResult1) && (character1.PONTOS > 0)) {
+                character1.PONTOS--
+            }
+
             //
             // mudança para ir ternário
             //
-            character1.PONTOS -= (powerResult2 > powerResult1) && (character1.PONTOS > 0) ? 1 : 0;
+            // character1.PONTOS -= (powerResult2 > powerResult1) && (character1.PONTOS > 0) ? 1 : 0;
             // if (powerResult2 > powerResult1) {
             //     if (character1.PONTOS > 0) {                 
             //         character1.PONTOS--;
