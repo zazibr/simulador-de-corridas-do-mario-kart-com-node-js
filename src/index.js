@@ -35,7 +35,7 @@ async function getRandomBlock() {
 }
 
 async function logRollResult(characterName, block, diceResult, attribute) {
-    console.log(`${characterName} rolou um dado de ${block} dado de ${block}  ${diceResult} + ${attribute} = ${diceResult + attribute}`);    
+    console.log(`${characterName} 🎲 rolou um dado de ${block} dado de ${block}  ${diceResult} + ${attribute} = ${diceResult + attribute}`);    
 }
 
 async function playRaceEngine(character1,character2) {
@@ -45,7 +45,7 @@ async function playRaceEngine(character1,character2) {
     let totalSkill_2 = 0;
     
     for (let round = 1; round <= 5; round++) {
-        console.log(`Rodada ${round}`);
+        console.log(`🏁 Rodada ${round}`);
 
         // sortear bloco
         let block = await getRandomBlock();
